@@ -3,7 +3,7 @@ package main
 import (
 	_ "embed"
 	"fmt"
-	"github.com/TwistedAsylumMC/minime"
+	"github.com/twistedasylummc/minime"
 	"image"
 	"image/png"
 	"os"
