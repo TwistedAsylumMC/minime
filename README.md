@@ -9,8 +9,11 @@ else.
 
 ## Standalone program
 
-You can use `go install github.com/twistedasylummc/minime/cmd@latest` to install a standalone version of the program. You can then
-use it in the command line using the command `minime <input> <output>`.
+You can run the example program by running `go run cmd/main.go` and providing an input and output file. For example:
+
+```shell
+go run cmd/main.go steve.png steve-mini.png
+```
 
 ## Using in a project
 
