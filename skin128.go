@@ -7,8 +7,9 @@ import (
 )
 
 // Skin128 returns an avatar generated from a skin that is 128x128 pixels. The skin must also be in the Minecraft format
-// otherwise the generated result may not look correct.
-func Skin128(src image.Image) image.Image {
+// otherwise the generated result may not look correct. If the skin is slim (using the Alex model), slim should be set
+// to true for the best results.
+func Skin128(src image.Image, slim bool) image.Image {
 	dst := image.NewRGBA(image.Rect(0, 0, 18, 28))
 	// Head
 	for x := 0; x < 18; x++ {
@@ -31,6 +32,9 @@ func Skin128(src image.Image) image.Image {
 				continue
 			}
 			xOff, yOff := (1-(x%2))*4, (y-1)*8
+			if slim {
+				xOff--
+			}
 			if x < 3 {
 				dst.Set(x+3, y+17, findSuitablePixel(src, 90+xOff, 73+yOff, 90+xOff, 41+yOff))
 			} else {
