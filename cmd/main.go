@@ -41,7 +41,11 @@ func main() {
 	if res == 1 {
 		dst = minime.Skin64(src)
 	} else {
-		dst = minime.Skin128(src)
+		var slim bool
+		if len(os.Args) > 3 && os.Args[3] == "slim" {
+			slim = true
+		}
+		dst = minime.Skin128(src, slim)
 	}
 
 	if err = os.MkdirAll(filepath.Dir(os.Args[2]), 0666); err != nil {
